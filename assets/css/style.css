@@ -1,0 +1,88 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    padding: 10px;
+}
+
+/* CUADRÍCULA PRINCIPAL */
+.galeria {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-rows: repeat(3, 200px);
+
+    grid-template-areas:
+        "paisaje f1 desayuno"
+        "gp f1 fuerzasEspeciales"
+        "gp espacio fuerzasEspeciales";
+
+    gap: 6px;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* POSICIÓN DE LAS IMÁGENES */
+.montaña {
+    grid-area: paisaje;
+}
+
+.f1 {
+    grid-area: f1;
+}
+
+.desayuno {
+    grid-area: desayuno;
+}
+
+.gp {
+    grid-area: gp;
+}
+
+.espacio {
+    grid-area: espacio;
+}
+
+.fuerzasEspeciales {
+    grid-area: fuerzasEspeciales;
+}
+
+/* TAMAÑO DE LAS IMÁGENES */
+.galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* TABLETAS */
+@media (max-width: 700px) {
+    .galeria {
+        grid-template-rows: repeat(3, 150px);
+        gap: 4px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 450px) {
+    .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(6, 150px);
+
+        grid-template-areas:
+            "paisaje paisaje"
+            "f1 desayuno"
+            "f1 gp"
+            "espacio espacio"
+            "fuerzasEspeciales fuerzasEspeciales"
+            "fuerzasEspeciales fuerzasEspeciales";
+    }
+}
